@@ -1,5 +1,6 @@
-# web
 
-## 🔗 Perfil - Web
+# 🔗 Perfil - Web
 
-###  https://bryan2002-afk.github.io/web/
+```bash id="y4o0a1"
+ https://bryan2002-afk.github.io/web/
+```
