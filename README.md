@@ -1,1 +1,2 @@
-[🌐 Ver mi página web](https://github.com/bryan2002-afk/web/)
+
+[Ver código HTML](https://github.com/bryan2002-afk/web/blob/main/index.html)
