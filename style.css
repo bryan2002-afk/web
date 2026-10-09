@@ -1,0 +1,159 @@
+    * {
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    /* Portada del perfil */
+    .cover-photo {
+      height: 180px;
+      width: 100%;
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.05),
+          rgba(0,0,0,0.35)
+        ),
+        url('img/banne.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Foto de perfil */
+    .profile-avatar {
+      width: 112px;
+      height: 112px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #121214;
+      background-color: #1a1a1e;
+    }
+
+    /* Botones de redes sociales */
+    .social-icon {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    /* Efecto hover */
+    .social-icon:hover {
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 7px 16px rgba(233, 64, 116, 0.25);
+    }
+
+    /* Efecto al presionar */
+    .social-icon:active {
+      transform: scale(0.93);
+    }
+
+    /* Accesibilidad */
+    .social-icon:focus-visible {
+      outline: 2px solid #E94074;
+      outline-offset: 4px;
+    }
+
+    
+    /* Botón compartir enlace */
+    .icon-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    }
+
+    /* Efecto al pasar el cursor */
+    .icon-btn:hover {
+    background-color: #E94074;
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(233, 64, 116, 0.35);
+    }
+
+    /* Efecto al presionar */
+    .icon-btn:active {
+    transform: scale(0.92);
+    }
+
+    /* Accesibilidad con teclado */
+    .icon-btn:focus-visible {
+    outline: 2px solid #E94074;
+    outline-offset: 4px;
+    }
+        
+
+    /* Animación de notificaciones */
+    @keyframes slideUp {
+      from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+    }
+
+    .toast-animate {
+      animation: slideUp 0.3s ease forwards;
+    }
+
+    /* Pantallas pequeñas */
+    @media (max-width: 400px) {
+      .cover-photo {
+        height: 145px;
+      }
+
+      .profile-avatar {
+        width: 96px;
+        height: 96px;
+      }
+
+      .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+      }
+    }
+
+    .verified-badge {
+      color: #38bdf8;
+      font-size: 1.2rem;
+    }
