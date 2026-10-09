@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Web</title>
+    <link rel="shortcut icon" href="img/link.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+        }
+
+        .icon-btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.3), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+
+                
+        /* Facebook */
+        .bg-facebook {
+            background-color: #1877F2;
+        }
+
+        /* Instagram */
+        .bg-instagram {
+            background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+        }
+
+        /* WhatsApp */
+        .bg-whatsapp {
+            background-color: #25D366;
+        }
+
+        /* GitHub */
+        .bg-github {
+            background-color: #24292f;
+        }
+
+        /* LinkedIn */
+        .bg-linkedin {
+            background-color: #0A66C2;
+        }
+
+        /* Threads */
+        .bg-threads {
+            background-color: #000000;
+        }
+
+        /* Gmail */
+        .bg-gmail {
+            background-color: #EA4335;
+        }
+
+        /* TikTok */
+        .bg-tiktok {
+            background-color: #010101;
+        }
+
+        /* Telegram */
+        .bg-telegram {
+            background-color: #26A5E4;
+        }
+
+        /* Deezer */
+        .bg-deezer {
+            background: linear-gradient(135deg, #FF0092, #7B2FFF, #00C7F2);
+        }
+
+
+
+        /* Animación suave para notificación */
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .toast-animate {
+            animation: toastIn 0.3s ease forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-sm bg-[#121316] rounded-[28px] overflow-hidden shadow-2xl border border-white/5 text-white relative">
+
+        <!-- Header / Banner con imagen nocturna -->
+        <div class="relative h-44 w-full overflow-hidden">
+            <img 
+                src="img/banne.jpg" 
+                alt="Banner de luces nocturnas" 
+                class="w-full h-full object-cover brightness-75"
+                onerror="this.src='https://placehold.co/800x400/1e1e24/ffffff?text=Night+Banner'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#121316]"></div>
+        </div>
+
+        <div class="px-5 pt-0 pb-4 relative">
+            <!-- Avatar y detalles principales -->
+            <div class="flex items-end justify-between -mt-20 mb-3">
+                <!-- Profile Picture circular superpuesta -->
+                <div class="relative group cursor-pointer" onclick="copyProfileLink()">
+                    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-[#121316] shadow-xl relative z-10 bg-gray-800">
+                        <img 
+                            src="img/perfil.jpg" 
+                            alt="Bryan Suriano en columpio" 
+                            class="w-full h-full object-cover transition transform group-hover:scale-105 duration-300"
+                            onerror="this.src='https://placehold.co/300x300/222/fff?text=Avatar'"
+                        />
+                    </div>
+                </div>
+
+                <!-- Nombre, Usuario e Indicador Online -->
+                <div class="flex-1 ml-3 mb-1">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <h1 class="text-xl font-bold tracking-tight text-white">Bryan Suriano</h1>
+                            <span class="text-blue-400 text-sm" title="Verificado">🔷</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mt-0.5">
+                        <span class="text-xs font-medium text-gray-400">@bryan2002-afk</span>
+                        
+                        <!-- Estado Online -->
+                        <div class="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-full border border-white/5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs font-medium text-emerald-400">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button 
+                onclick="handleGetInTouch()"
+                class="w-full my-3 py-2.5 bg-[#1b1c22] hover:bg-[#252730] text-[#38bdf8] font-bold text-sm tracking-widest rounded-full border border-white/5 transition-all duration-200 active:scale-95 shadow-md flex items-center justify-center gap-2"
+            >
+                <span>Get in Touch</span>
+            </button>
+
+            
+            <div class="grid grid-cols-4 gap-4 my-6 px-2">
+
+                <!-- Fila 1: Facebook, Instagram, WhatsApp y GitHub -->
+
+                <button onclick="openSocial('Facebook')"
+                    class="icon-btn bg-facebook w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </button>
+
+                <button onclick="openSocial('Instagram')"
+                    class="icon-btn bg-instagram w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </button>
+
+                <button onclick="openSocial('WhatsApp')"
+                    class="icon-btn bg-whatsapp w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+
+                <button onclick="openSocial('GitHub')"
+                    class="icon-btn bg-github w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </button>
+
+
+                <!-- Fila 2: LinkedIn, Threads, Gmail y TikTok -->
+
+                <button onclick="openSocial('LinkedIn')"
+                    class="icon-btn bg-linkedin w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </button>
+
+                <button onclick="openSocial('Threads')"
+                    class="icon-btn bg-threads w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="Threads">
+                    <i class="fa-brands fa-threads"></i>
+                </button>
+
+                <button onclick="openSocial('Gmail')"
+                    class="icon-btn bg-gmail w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="Gmail">
+                    <i class="fa-solid fa-envelope"></i>
+                </button>
+
+                <button onclick="openSocial('TikTok')"
+                    class="icon-btn bg-tiktok w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </button>
+
+
+                <!-- Fila 3: Telegram y Deezer -->
+
+                <button onclick="openSocial('Telegram')"
+                    class="icon-btn bg-telegram w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl mx-auto"
+                    aria-label="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </button>
+
+                
+
+            </div>
+
+
+
+            <div class="text-center pt-2 pb-2">
+                <p class="text-xs font-medium text-gray-400 tracking-wide">Encuéntrame en mis redes sociales.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 border border-gray-700 text-white px-5 py-2.5 rounded-full text-xs font-medium shadow-2xl hidden z-50 flex items-center gap-2">
+        <span id="toast-icon">✨</span>
+        <span id="toast-message">Notificación</span>
+    </div>
+
+
+
+
+    
+    <script>
+
+        // Función para mostrar notificaciones personalizadas tipo Toast sin alert()
+        function showToast(message, icon = '🚀') {
+
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastMsg.innerText = message;
+            toastIcon.innerText = icon;
+
+            toast.classList.remove('hidden');
+            toast.classList.add('toast-animate');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('toast-animate');
+            }, 2500);
+        }
+
+
+        // Función para abrir las redes sociales
+        function openSocial(platform) {
+
+            // Enlaces de cada red social
+            const enlaces = {
+
+                Facebook: "https://www.facebook.com/share/19o6HypsCa/",
+                Instagram: "https://www.instagram.com/bryan_suriano/",
+                WhatsApp: "https://wa.me/529514650437?text=Hola%20Bryan%2C%20vi%20tu%20perfil",
+                GitHub: "https://github.com/bryan2002-afk",
+                LinkedIn: "https://www.linkedin.com/in/bryan-julian-suriano-ramirez-09578a273/",
+                Threads: "https://www.threads.com/@bryan_suriano",
+                Gmail: "https://mail.google.com/mail/?view=cm&fs=1&to=surianobryan38@gmail.com",
+                TikTok: "https://www.tiktok.com/@2_bryan.s",
+                Telegram: "https://t.me/bryan_S_01"
+            };
+
+            // Comprobar que exista el enlace de la red seleccionada
+            if (enlaces[platform]) {
+
+                // Mostrar notificación
+                showToast(`Abriendo ${platform}...`, '🔗');
+
+                // Abrir la página en una nueva pestaña
+                window.open(
+                    enlaces[platform],
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            } else {
+
+                // Mostrar mensaje si la red no existe
+                showToast('Red social no encontrada', '⚠️');
+
+            }
+        }
+
+
+        // Función del botón Get in Touch
+        function handleGetInTouch() {
+
+            showToast('¡Mensaje enviado a Bryan Suriano!', '💬');
+
+        }
+
+
+        // Función para copiar el enlace del perfil
+        function copyProfileLink() {
+
+            const dummy = document.createElement('input');
+
+            document.body.appendChild(dummy);
+
+            dummy.value = window.location.href;
+
+            dummy.select();
+
+            document.execCommand('copy');
+
+            document.body.removeChild(dummy);
+
+            showToast('¡Enlace del perfil copiado al portapapeles!', '📋');
+
+        }
+
+    </script>
+
+
+</body>
+</html>
